@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors, shadows } from '../theme';
 import { spacing } from '../theme/spacing';
 import { primaryNavItems, expertiseRoutes, HEADER_HEIGHT } from '../constants/navigation';
-import { ROUTES, type RouteName } from '../navigation/routes';
+import { ROUTES, type RouteName, type SimpleRouteName } from '../navigation/routes';
 import { useResponsive } from '../hooks/useResponsive';
 
 import { Logo } from './Logo';
@@ -25,11 +25,22 @@ export function Header({ navigation, route }: NativeStackHeaderProps) {
   const insets = useSafeAreaInsets();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // route.name couvre TOUTES les routes (y compris ProjetDetail, qui prend
+  // un paramètre) — la nav elle-même ne navigue que vers des routes
+  // "simples", d'où les deux types différents.
   const currentRoute = route.name as RouteName;
-  const isExpertiseActive = expertiseRoutes.includes(currentRoute);
+  const isExpertiseActive = (expertiseRoutes as RouteName[]).includes(currentRoute);
 
-  const goTo = (routeName: RouteName) => {
+  const goTo = (routeName: SimpleRouteName) => {
     navigation.navigate(routeName);
+  };
+
+  const isItemActive = (itemRoute: SimpleRouteName) => {
+    if (itemRoute === ROUTES.PROJETS) {
+      // Reste actif quand on consulte le détail d'un projet.
+      return currentRoute === ROUTES.PROJETS || currentRoute === ROUTES.PROJET_DETAIL;
+    }
+    return currentRoute === itemRoute;
   };
 
   return (
@@ -46,7 +57,7 @@ export function Header({ navigation, route }: NativeStackHeaderProps) {
               <NavLink
                 key={item.route}
                 label={item.label}
-                active={currentRoute === item.route}
+                active={isItemActive(item.route)}
                 onPress={() => goTo(item.route)}
               />
             ))}

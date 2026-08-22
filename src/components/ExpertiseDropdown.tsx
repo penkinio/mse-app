@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, typography, spacing, radii, shadows } from '../theme';
 import { expertiseItems, HEADER_HEIGHT } from '../constants/navigation';
-import type { RouteName } from '../navigation/routes';
+import type { SimpleRouteName } from '../navigation/routes';
 import { webTransition } from '../utils/webTransition';
 
 type ExpertiseDropdownProps = {
   active: boolean;
-  onNavigate: (route: RouteName) => void;
+  onNavigate: (route: SimpleRouteName) => void;
 };
 
 /**
@@ -19,7 +19,7 @@ type ExpertiseDropdownProps = {
 export function ExpertiseDropdown({ active, onNavigate }: ExpertiseDropdownProps) {
   const [open, setOpen] = useState(false);
 
-  const handleSelect = (route: RouteName) => {
+  const handleSelect = (route: SimpleRouteName) => {
     setOpen(false);
     onNavigate(route);
   };

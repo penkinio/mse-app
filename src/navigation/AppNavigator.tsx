@@ -11,6 +11,7 @@ import { GenieCivilScreen } from '../screens/GenieCivilScreen';
 import { GenieElectriqueScreen } from '../screens/GenieElectriqueScreen';
 import { GenieInformatiqueScreen } from '../screens/GenieInformatiqueScreen';
 import { ProjetsScreen } from '../screens/ProjetsScreen';
+import { ProjetDetailScreen } from '../screens/ProjetDetailScreen';
 import { EngagementScreen } from '../screens/EngagementScreen';
 import { ContactScreen } from '../screens/ContactScreen';
 
@@ -36,6 +37,7 @@ export function AppNavigator() {
           <Stack.Screen name={ROUTES.GENIE_ELECTRIQUE} component={GenieElectriqueScreen} />
           <Stack.Screen name={ROUTES.GENIE_INFORMATIQUE} component={GenieInformatiqueScreen} />
           <Stack.Screen name={ROUTES.PROJETS} component={ProjetsScreen} />
+          <Stack.Screen name={ROUTES.PROJET_DETAIL} component={ProjetDetailScreen} />
           <Stack.Screen name={ROUTES.ENGAGEMENT} component={EngagementScreen} />
           <Stack.Screen name={ROUTES.CONTACT} component={ContactScreen} />
         </Stack.Navigator>

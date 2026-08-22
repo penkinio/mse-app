@@ -8,6 +8,7 @@ export const ROUTES = {
   GENIE_ELECTRIQUE: 'GenieElectrique',
   GENIE_INFORMATIQUE: 'GenieInformatique',
   PROJETS: 'Projets',
+  PROJET_DETAIL: 'ProjetDetail',
   ENGAGEMENT: 'Engagement',
   CONTACT: 'Contact',
 } as const;
@@ -15,8 +16,15 @@ export const ROUTES = {
 export type RouteName = (typeof ROUTES)[keyof typeof ROUTES];
 
 /**
- * Aucun écran ne prend de paramètre pour l'instant (ex: un futur
- * ProjetDetail en prendrait un — le type est prêt à être étendu).
+ * Routes sans paramètre — celles que la navigation principale (Header,
+ * menu mobile, dropdown Expertise) peut ouvrir directement par leur nom.
+ * `ProjetDetail` en est exclu car il exige un `projectId`.
+ */
+export type SimpleRouteName = Exclude<RouteName, 'ProjetDetail'>;
+
+/**
+ * Aucun écran ne prend de paramètre pour l'instant, à l'exception de
+ * ProjetDetail (identifiant du projet affiché).
  */
 export type RootStackParamList = {
   Home: undefined;
@@ -24,6 +32,7 @@ export type RootStackParamList = {
   GenieElectrique: undefined;
   GenieInformatique: undefined;
   Projets: undefined;
+  ProjetDetail: { projectId: string };
   Engagement: undefined;
   Contact: undefined;
 };

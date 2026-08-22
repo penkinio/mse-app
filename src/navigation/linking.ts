@@ -19,6 +19,7 @@ export const linking: LinkingOptions<RootStackParamList> = {
       [ROUTES.GENIE_ELECTRIQUE]: 'expertise/genie-electrique',
       [ROUTES.GENIE_INFORMATIQUE]: 'expertise/genie-informatique',
       [ROUTES.PROJETS]: 'projets',
+      [ROUTES.PROJET_DETAIL]: 'projets/:projectId',
       [ROUTES.ENGAGEMENT]: 'engagement',
       [ROUTES.CONTACT]: 'contact',
     },

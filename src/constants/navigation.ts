@@ -1,8 +1,8 @@
-import { ROUTES, type RouteName } from '../navigation/routes';
+import { ROUTES, type SimpleRouteName } from '../navigation/routes';
 
 export type NavItem = {
   label: string;
-  route: RouteName;
+  route: SimpleRouteName;
 };
 
 export const HEADER_HEIGHT = 72;
@@ -24,4 +24,4 @@ export const expertiseItems: NavItem[] = [
   { label: 'Génie Informatique', route: ROUTES.GENIE_INFORMATIQUE },
 ];
 
-export const expertiseRoutes: RouteName[] = expertiseItems.map((item) => item.route);
+export const expertiseRoutes: SimpleRouteName[] = expertiseItems.map((item) => item.route);

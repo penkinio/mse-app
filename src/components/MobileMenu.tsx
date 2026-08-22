@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { colors, typography, spacing, radii } from '../theme';
 import { primaryNavItems, expertiseItems } from '../constants/navigation';
-import type { RouteName } from '../navigation/routes';
+import type { SimpleRouteName } from '../navigation/routes';
 
 type MobileMenuProps = {
   visible: boolean;
   onClose: () => void;
-  onNavigate: (route: RouteName) => void;
+  onNavigate: (route: SimpleRouteName) => void;
 };
 
 /**
@@ -18,7 +18,7 @@ type MobileMenuProps = {
 export function MobileMenu({ visible, onClose, onNavigate }: MobileMenuProps) {
   const [expertiseOpen, setExpertiseOpen] = useState(false);
 
-  const handleSelect = (route: RouteName) => {
+  const handleSelect = (route: SimpleRouteName) => {
     onClose();
     onNavigate(route);
   };
