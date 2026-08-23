@@ -5,17 +5,24 @@ import { webTransition } from '../utils/webTransition';
 type CtaButtonProps = {
   label: string;
   onPress: () => void;
+  disabled?: boolean;
 };
 
 /** Bouton d'action principal ("Nous contacter", etc.), réutilisable. */
-export function CtaButton({ label, onPress }: CtaButtonProps) {
+export function CtaButton({ label, onPress, disabled = false }: CtaButtonProps) {
   return (
-    <Pressable onPress={onPress} accessibilityRole="button">
+    <Pressable onPress={disabled ? undefined : onPress} accessibilityRole="button" accessibilityState={{ disabled }}>
       {(state) => {
         const hovered = Boolean((state as { hovered?: boolean }).hovered);
         return (
-          <View style={[styles.button, (hovered || state.pressed) && styles.buttonHovered]}>
-            <Text style={styles.label}>{label}</Text>
+          <View
+            style={[
+              styles.button,
+              !disabled && (hovered || state.pressed) ? styles.buttonHovered : null,
+              disabled ? styles.buttonDisabled : null,
+            ]}
+          >
+            <Text style={[styles.label, disabled ? styles.labelDisabled : null]}>{label}</Text>
           </View>
         );
       }}
@@ -35,9 +42,15 @@ const styles = StyleSheet.create({
   buttonHovered: {
     backgroundColor: colors.accentLight,
   },
+  buttonDisabled: {
+    backgroundColor: colors.border,
+  },
   label: {
     ...typography.button,
     color: colors.primary,
     letterSpacing: 0.6,
+  },
+  labelDisabled: {
+    color: colors.textSecondary,
   },
 });
