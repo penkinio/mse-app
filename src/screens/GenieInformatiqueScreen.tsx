@@ -17,7 +17,8 @@ export function GenieInformatiqueScreen() {
       illustrations={
           <ImageGallery
               images={[
-                  require('../assets/images/illustration-informatique.jpg')
+                  require('../assets/images/illustration-informatique.jpg'),
+                  require('../assets/images/bannier-genie-informatique.jpg')
               ]}
           />
       }
