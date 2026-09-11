@@ -5,6 +5,7 @@ import { ExpertisePageTemplate } from '../components/ExpertisePageTemplate';
 import { AccentPanel } from '../components/AccentPanel';
 import { genieInformatiqueContent } from '../constants/expertiseContent';
 import { ROUTES, type RootStackParamList } from '../navigation/routes';
+import {ImageGallery} from "../components/ImageGallery";
 
 export function GenieInformatiqueScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -12,8 +13,13 @@ export function GenieInformatiqueScreen() {
   return (
     <ExpertisePageTemplate
       {...genieInformatiqueContent}
+      heroImage={require('../assets/images/bannier-genie-informatique.jpg')}
       illustrations={
-        <AccentPanel text="Une équipe qui combine développement logiciel, cloud et cybersécurité pour faire évoluer vos systèmes d'information en toute confiance." />
+          <ImageGallery
+              images={[
+                  require('../assets/images/illustration-informatique.jpg')
+              ]}
+          />
       }
       onContact={() => navigation.navigate(ROUTES.CONTACT)}
     />
