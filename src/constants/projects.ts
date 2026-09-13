@@ -45,6 +45,7 @@ export const projects: Project[] = [
     technologies: ['React Native', 'Node.js', 'PostgreSQL'],
     year: 2025,
     location: 'Yaoundé',
+    image: require('../assets/images/gestion-chantier-bis.jpg'),
   },
   {
     id: 'installation-electrique-complexe-commercial',
@@ -64,5 +65,6 @@ export const projects: Project[] = [
     technologies: ['Réseaux', 'Cybersécurité', 'IA embarquée'],
     year: 2024,
     location: 'Douala',
+    image: require('../assets/images/systeme-video-surveillance.jpeg'),
   },
 ];

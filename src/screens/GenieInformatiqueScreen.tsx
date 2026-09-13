@@ -2,7 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { ExpertisePageTemplate } from '../components/ExpertisePageTemplate';
-import { AccentPanel } from '../components/AccentPanel';
 import { genieInformatiqueContent } from '../constants/expertiseContent';
 import { ROUTES, type RootStackParamList } from '../navigation/routes';
 import {ImageGallery} from "../components/ImageGallery";
