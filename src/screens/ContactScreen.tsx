@@ -65,6 +65,7 @@ export function ContactScreen() {
         eyebrow="PARLONS-EN"
         title="Contact"
         subtitle="Nos équipes vous répondent, ou écrivez-nous directement via le formulaire."
+        image={require('../assets/images/contact.jpg')}
       />
 
       <View style={styles.infoSection}>

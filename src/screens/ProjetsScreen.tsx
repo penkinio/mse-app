@@ -17,6 +17,7 @@ export function ProjetsScreen() {
         eyebrow="RÉALISATIONS"
         title="Projets"
         subtitle="Un aperçu de nos réalisations à travers nos trois pôles d'expertise."
+        image={require('../assets/images/projet-bis.jpg')}
       />
 
       <View style={styles.grid}>
